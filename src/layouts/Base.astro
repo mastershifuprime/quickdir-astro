@@ -129,12 +129,12 @@ const { title, meta_title, description, image, noindex, canonical } =
   </head>
   <body class="font-primary text-base">
     <ScrollToTop client:load />
-    <Header client:load pathname={Astro.url.pathname} />
-    <SearchModal client:load />
-    <main>
+    <Header client:load pathname={Astro.url.pathname} transition:persist />
+    <SearchModal client:load transition:persist />
+    <main transition:animate="fade">
       <slot />
     </main>
-    <Footer client:load />
+    <Footer client:load transition:persist />
     <ToasterWrapper client:load />
   </body>
 </html>
