@@ -1,0 +1,101 @@
+---
+import Base from "@/layouts/Base.astro";
+import config from "@/config/config.json";
+import BlogCard from "@/layouts/components/BlogCard";
+import Share from "@/layouts/components/Share";
+import MDXContent from "@/layouts/helpers/MDXContent";
+import PageHeader from "@/layouts/partials/PageHeader";
+import { getListPage, getSinglePage } from "@/lib/contentParser";
+import dateFormat from "@/lib/utils/dateFormat";
+import similarItems from "@/lib/utils/similarItems";
+import { slugify } from "@/lib/utils/textConverter";
+import type { Post } from "@/types";
+
+const { blog_folder } = config.settings;
+const { single } = Astro.params;
+const posts: Post[] = getSinglePage(blog_folder);
+const post = posts.find((page) => page.slug === single);
+
+if (!post) {
+  return Astro.redirect("/404");
+}
+
+const { frontmatter, content } = post;
+const { title, description, image, author, date } = frontmatter;
+const similarPosts = similarItems(post, posts, post.slug!);
+
+const authorContentPath = `/authors/${slugify(author)}.md`;
+const authorData = getListPage(authorContentPath) as any;
+
+export function getStaticPaths() {
+  const posts: Post[] = getSinglePage(config.settings.blog_folder);
+  return posts.map((post) => ({
+    params: { single: post.slug },
+  }));
+}
+---
+
+<Base {title} meta_title={frontmatter.meta_title} {description} {image}>
+  <PageHeader title={title!} {description} />
+  <section class="section pt-0">
+    <div class="container">
+      <div class="flex justify-center">
+        <article class="lg:w-8/12">
+          <ul class="mb-14 flex justify-between">
+            <li class="flex flex-col gap-y-1">
+              <span class="text-text/50 mb-2">Written by</span>
+              <div class="flex items-center gap-2 text-text-dark">
+                <img
+                  src={authorData.frontmatter?.image || "/images/placeholder.png"}
+                  class="-mt-1 mr-3 text-4xl inline-block rounded-full"
+                  width="30"
+                  height="30"
+                  alt={authorData.frontmatter?.title}
+                />
+                <span class="text-base">{authorData.frontmatter?.title}</span>
+              </div>
+            </li>
+            {date && (
+              <li class="flex flex-col gap-y-1">
+                <span class="text-text/50">Published on</span>
+                <span class="text-lg text-text-dark">{dateFormat(date)}</span>
+              </li>
+            )}
+          </ul>
+          {image && (
+            <div class="mb-10">
+              <img
+                src={image}
+                class="w-full rounded-xl"
+                alt={title}
+              />
+            </div>
+          )}
+          <div class="content mb-10">
+            <MDXContent {content} client:load />
+          </div>
+          <div class="flex items-center lg:col-4">
+            <h5 class="mr-3">Share :</h5>
+            <Share
+              className="social-icons"
+              {title}
+              {description}
+              slug={post.slug!}
+              client:load
+            />
+          </div>
+        </article>
+      </div>
+      <div class="section pb-0">
+        <h2 class="h3 mb-12 text-center">Related Posts</h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+          {similarPosts.map((post) => (
+            <div class="mb-7">
+              <BlogCard data={post} client:load />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

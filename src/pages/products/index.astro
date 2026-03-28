@@ -1,0 +1,15 @@
+---
+import Base from "@/layouts/Base.astro";
+import CategoriesDashboard from "@/layouts/components/CategoriesView";
+import PageHeader from "@/layouts/partials/PageHeader";
+import { getListPage } from "@/lib/contentParser";
+import type { RegularPage } from "@/types";
+
+const pageIndex: RegularPage = getListPage("products/_index.md");
+const { title, description, meta_title, image } = pageIndex.frontmatter;
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <PageHeader {title} {description} enableSearch={true} />
+  <CategoriesDashboard client:load />
+</Base>

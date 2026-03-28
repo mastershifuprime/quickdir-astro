@@ -1,0 +1,39 @@
+---
+import Base from "@/layouts/Base.astro";
+import BlogCard from "@/layouts/components/BlogCard";
+import Pagination from "@/layouts/components/Pagination";
+import config from "@/config/config.json";
+import { getListPage, getSinglePage } from "@/lib/contentParser";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import PageHeader from "@/layouts/partials/PageHeader";
+import type { Post } from "@/types";
+
+const { blog_folder, pagination } = config.settings;
+const postIndex = getListPage<Post["frontmatter"]>(`${blog_folder}/_index.md`);
+const { title, meta_title, description, image } = postIndex.frontmatter;
+const posts: Post[] = getSinglePage(blog_folder);
+const sortedPosts = sortByDate(posts);
+const totalPages = Math.ceil(posts.length / pagination);
+const currentPosts = sortedPosts.slice(0, pagination);
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <PageHeader title={postIndex.frontmatter.title} description={postIndex.frontmatter.description} />
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        {currentPosts.map((post: any, index: number) => (
+          <div class="mb-14 md:col-4">
+            <BlogCard data={post} client:load />
+          </div>
+        ))}
+      </div>
+      <Pagination
+        section={blog_folder}
+        currentPage={1}
+        totalPages={totalPages}
+        client:load
+      />
+    </div>
+  </section>
+</Base>

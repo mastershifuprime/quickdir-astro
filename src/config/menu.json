@@ -1,0 +1,116 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Products",
+      "url": "/products"
+    },
+    {
+      "name": "Blog",
+      "url": "/blog"
+    },
+    {
+      "name": "All Pages",
+      "url": "",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "Contact",
+          "url": "/contact"
+        },
+        {
+          "name": "Submit",
+          "url": "/submit"
+        },
+        {
+          "name": "Pricing",
+          "url": "/pricing"
+        },
+        {
+          "name": "About",
+          "url": "/about"
+        },
+        {
+          "name": "Changelog",
+          "url": "/changelog"
+        },
+        {
+          "name": "Authors",
+          "url": "/authors"
+        },
+        {
+          "name": "Privacy",
+          "url": "/privacy-policy"
+        },
+        {
+          "name": "Terms",
+          "url": "/terms-conditions"
+        },
+        {
+          "name": "404 Page",
+          "url": "/404"
+        }
+      ]
+    }
+  ],
+  "footer": [
+    {
+      "name": "General",
+      "links": [
+        {
+          "name": "About Us",
+          "url": "/about"
+        },
+        {
+          "name": "Privacy Policy",
+          "url": "/privacy-policy"
+        },
+        {
+          "name": "Terms & Conditions",
+          "url": "/terms-conditions"
+        }
+      ]
+    },
+    {
+      "name": "Resources",
+      "links": [
+        {
+          "name": "Products",
+          "url": "/products"
+        },
+        {
+          "name": "Pricing",
+          "url": "/pricing"
+        },
+        {
+          "name": "Blogs",
+          "url": "/blog"
+        }
+      ]
+    },
+    {
+      "name": "Help & Support",
+      "links": [
+        {
+          "name": "Contact",
+          "url": "/contact"
+        },
+        {
+          "name": "Submission",
+          "url": "/submit"
+        },
+        {
+          "name": "Changelogs",
+          "url": "/changelog"
+        },
+        {
+          "name": "Documentation",
+          "url": "/docs"
+        }
+      ]
+    }
+  ]
+}

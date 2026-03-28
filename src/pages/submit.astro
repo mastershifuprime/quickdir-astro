@@ -1,0 +1,101 @@
+---
+import Base from "@/layouts/Base.astro";
+import config from "@/config/config.json";
+import CallToAction from "@/layouts/partials/CallToAction";
+import PageHeader from "@/layouts/partials/PageHeader";
+import { getListPage } from "@/lib/contentParser";
+import type { RegularPage } from "@/types";
+
+const data: RegularPage = getListPage("submit/_index.md");
+const { frontmatter } = data;
+const { title, meta_title, description, image } = frontmatter;
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <PageHeader {title} {description} />
+  <section class="section-sm pt-0 mb-20">
+    <div class="container">
+      <form action={config.params.submit_form_action} class="lg:w-10/12 mx-auto">
+        <div class="grid grid-cols-12 gap-6 mt-16">
+          <div class="col-span-12 md:col-span-8 md:col-start-3 mb-7">
+            <h6 class="mb-2 text-lg">Submit your template</h6>
+            <p class="text-sm">Explain what your template is about.</p>
+          </div>
+          <div class="col-span-12 md:col-span-8 md:col-start-3">
+            <div class="grid grid-cols-12 gap-x-2 sm:gap-x-5 gap-y-3 mb-6">
+              <div class="col-span-12 sm:col-span-6">
+                <label for="title" class="form-label font-semibold text-base">Template Title *</label>
+                <input id="title" name="title" class="form-input" placeholder="Saas Landing Page" type="text" required />
+              </div>
+              <div class="col-span-12 sm:col-span-6">
+                <label for="price" class="form-label font-semibold text-base">Price *</label>
+                <input id="number" name="price" class="form-input" placeholder="$ 0.00" type="text" required />
+              </div>
+            </div>
+            <div class="grid grid-cols-12 gap-x-2 sm:gap-x-5 gap-y-3 mb-6">
+              <div class="col-span-12 sm:col-span-6">
+                <label for="github" class="form-label font-semibold text-base">Github *</label>
+                <input id="github" name="github" class="form-input" placeholder="https://github.com" type="text" required />
+              </div>
+              <div class="col-span-12 sm:col-span-6">
+                <label for="css-framework" class="form-label font-semibold text-base">CSS Framework *</label>
+                <select id="css-framework" name="css-framework" class="form-input bg-body" required>
+                  <option value="" disabled selected>Select a CSS framework</option>
+                  <option value="tailwind">Tailwind CSS</option>
+                  <option value="bootstrap">Bootstrap</option>
+                  <option value="bulma">Bulma</option>
+                  <option value="foundation">Foundation</option>
+                  <option value="materialize">Materialize</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-cols-12 gap-x-2 sm:gap-x-5 gap-y-3 mb-6">
+              <div class="col-span-12 sm:col-span-6">
+                <label for="cms" class="form-label font-semibold text-base">CMS *</label>
+                <select id="cms" name="cms" class="form-input bg-body" required>
+                  <option value="" disabled selected>Select CMS</option>
+                  <option value="wordpress">WordPress</option>
+                  <option value="sitepins">Sitepins</option>
+                  <option value="strapi">Strapi</option>
+                  <option value="contentful">Contentful</option>
+                  <option value="magento">Magento</option>
+                  <option value="shopify">Shopify</option>
+                </select>
+              </div>
+              <div class="col-span-12 sm:col-span-6">
+                <label for="category" class="form-label font-semibold text-base">Category *</label>
+                <select id="category" name="category" class="form-input bg-body" required>
+                  <option value="" disabled selected>Select Category</option>
+                  <option value="technology">Technology</option>
+                  <option value="health">Health</option>
+                  <option value="finance">Finance</option>
+                  <option value="education">Education</option>
+                  <option value="entertainment">Entertainment</option>
+                  <option value="travel">Travel</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-cols-12 gap-x-2 sm:gap-x-5 gap-y-3 mb-6">
+              <div class="col-span-12 sm:col-span-6">
+                <label for="author" class="form-label font-semibold text-base">Author Name *</label>
+                <input id="author" name="author" class="form-input" placeholder="John Doe" type="text" required />
+              </div>
+              <div class="col-span-12 sm:col-span-6">
+                <label for="website" class="form-label font-semibold text-base">Website Link *</label>
+                <input id="website" name="website" class="form-input" placeholder="https://www.example.com" type="text" required />
+              </div>
+            </div>
+            <div class="mb-6">
+              <label for="description" class="form-label font-semibold text-base">Product Description? *</label>
+              <textarea id="description" name="description" class="form-input" placeholder="Full description" rows={5}></textarea>
+            </div>
+          </div>
+          <div class="col-span-12 md:col-span-8 md:col-start-3 mt-5">
+            <button type="submit" class="btn btn-primary w-full py-6 cursor-pointer text-lg">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <CallToAction />
+</Base>

@@ -1,0 +1,110 @@
+---
+import Base from "@/layouts/Base.astro";
+import ProductCard from "@/layouts/components/ProductCard";
+import MDXContent from "@/layouts/helpers/MDXContent";
+import { getSinglePage } from "@/lib/contentParser";
+import similarProducts from "@/lib/utils/similarProducts";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { Product } from "@/types";
+
+const { slug } = Astro.params;
+const products = getSinglePage("products") as Product[];
+const product = products.find((page) => page.slug === slug);
+
+if (!product) {
+  return Astro.redirect("/404");
+}
+
+const similarItems = similarProducts(product, products, product.slug);
+
+export function getStaticPaths() {
+  const products = getSinglePage("products") as Product[];
+  return products.map((product) => ({
+    params: { slug: product.slug },
+  }));
+}
+---
+
+<Base
+  title={product.frontmatter.title}
+  meta_title={product.frontmatter.meta_title}
+  description={product.frontmatter.description}
+  image={product.frontmatter.image}
+>
+  <section class="section">
+    <div class="container">
+      <div class="flex flex-col md:flex-row gap-5">
+        <img
+          src={product.frontmatter.image || "/images/no-image.png"}
+          alt={product.frontmatter.title}
+          class="w-full max-h-[600px] md:h-auto object-cover rounded-2xl overflow-hidden shadow-light"
+        />
+        <div class="bg-light p-5 rounded-2xl h-fit w-full shadow-light">
+          {product.frontmatter.price ? (
+            <h2 class="text-h2 font-bold mb-5">${product.frontmatter.price}</h2>
+          ) : (
+            <h2 class="text-h2 font-bold mb-5">Free</h2>
+          )}
+          <p set:html={markdownify(product.frontmatter.description || "").__html} />
+
+          <div class="mt-20 flex items-center max-w-max">
+            <img
+              src={
+                product.frontmatter.github
+                  ? `https://www.github.com/${product.frontmatter.github.match(/github\.com\/([^\/]+)/)?.[1] || ""}.png`
+                  : product.frontmatter.author_link
+                    ? `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${product.frontmatter.author_link}/&size=64`
+                    : "/images/author-placeholder.png"
+              }
+              height="30"
+              width="30"
+              alt={product.frontmatter.author}
+              class="mr-2 rounded-full border border-border"
+            />
+            <span class="font-semibold text-dark">
+              {product.frontmatter.author || "Unknown"}
+            </span>
+          </div>
+
+          <a
+            href={product.frontmatter.demo as string}
+            target="_blank"
+            class="btn btn-primary bg-primary/80 w-full flex justify-center items-center gap-2.5 mt-5"
+          >
+            Learn More
+            <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.6665 7.83337L14.1332 2.3667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M14.6668 5.03337V1.83337H11.4668" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M7.3335 1.83337H6.00016C2.66683 1.83337 1.3335 3.16671 1.3335 6.50004V10.5C1.3335 13.8334 2.66683 15.1667 6.00016 15.1667H10.0002C13.3335 15.1667 14.6668 13.8334 14.6668 10.5V9.16671" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <MDXContent content={product.content} client:load />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="text-h5 font-bold mb-8">Related Items</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {similarItems.length > 0 ? (
+          similarItems.slice(0, 8).map((item) => (
+            <div>
+              <ProductCard product={item} client:load />
+            </div>
+          ))
+        ) : (
+          <p>No related products found.</p>
+        )}
+      </div>
+    </div>
+  </section>
+</Base>

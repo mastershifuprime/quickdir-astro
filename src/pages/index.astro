@@ -1,0 +1,41 @@
+---
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/layouts/partials/CallToAction";
+import HeroSection from "@/layouts/partials/HeroSection";
+import ItemsByCategories from "@/layouts/partials/ItemsByCategories";
+import ProductCarousel from "@/layouts/partials/ProductCarousel";
+import TrendingProducts from "@/layouts/partials/TrendingProducts";
+import { getListPage, getSinglePage } from "@/lib/contentParser";
+import type { Homepage, Product } from "@/types";
+
+const pageIndex = getListPage<Homepage["frontmatter"]>("homepage/_index.md");
+const products = getSinglePage("products") as Product[];
+const {
+  title,
+  meta_title,
+  description,
+  image,
+  banner,
+  featured_products,
+  popular_products,
+  items_by_section,
+} = pageIndex.frontmatter;
+
+const featured_products_data = products.filter((product) =>
+  featured_products.includes(product.slug),
+);
+const popular_products_data = products.filter((product) =>
+  popular_products.includes(product.slug),
+);
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <HeroSection heroData={banner} client:load />
+  <ProductCarousel products={featured_products_data} client:load />
+  <TrendingProducts products={popular_products_data} />
+  <ItemsByCategories
+    products={products}
+    items_by_section={items_by_section}
+  />
+  <CallToAction />
+</Base>

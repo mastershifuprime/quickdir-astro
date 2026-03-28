@@ -1,0 +1,48 @@
+/* define font family into layout.tsx */
+
+/* font size and radius */
+:root {
+  --font-base: 16;
+  --font-scale: 1.2;
+  --radius: 0.6rem;
+}
+
+/* default colors */
+:root {
+  --body-color: #ffffff;
+  --primary-color: #525ace;
+  --border-color: #eaeaeaff;
+  --light-color: #f8fafc;
+  --dark-color: #1c1f26;
+  --accent-color: #007bff;
+  --muted-color: #d0d7e6;
+  --danger-color: #e63946;
+  --success-color: #3a9d23;
+  --warning-color: #d69f00;
+
+  --text-default-color: #2c3e50c4;
+  --text-light-color: #707177;
+  --text-dark-color: #1a1a1a;
+  --text-muted-color: #6b6b6b;
+  --text-white-color: #ffffff;
+}
+
+/* darkmode colors */
+.dark {
+  --body-color: #01040f;
+  --primary-color: #525ace;
+  --border-color: #121627;
+  --light-color: #0c1122;
+  --dark-color: #f2f2f2;
+  --accent-color: #00aaff;
+  --muted-color: #2e2e2e;
+  --danger-color: #ff0000;
+  --success-color: #00ff00;
+  --warning-color: #ffaa00;
+
+  --text-default-color: #a3acc2d7;
+  --text-light-color: #6a6a80;
+  --text-dark-color: #ffffff;
+  --text-muted-color: #b3b3b3;
+  --text-white-color: #000000;
+}

@@ -1,0 +1,109 @@
+---
+import Base from "@/layouts/Base.astro";
+import config from "@/config/config.json";
+import { Button } from "@/layouts/components/ui/button";
+import { getListPage } from "@/lib/contentParser";
+import PageHeader from "@/layouts/partials/PageHeader";
+import type { RegularPage } from "@/types";
+
+const data: RegularPage = getListPage("contact/_index.md");
+const { frontmatter } = data;
+const { title, description, meta_title, image } = frontmatter;
+const { contact_form_action, email } = config.params;
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <PageHeader {title} {description} />
+  <section class="pb-24">
+    <div class="container">
+      <div class="lg:w-6/12 mx-auto">
+        <form action={contact_form_action} method="POST">
+          <div class="mb-5 grid md:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="form-label">Full Name *</label>
+              <input
+                id="name"
+                name="name"
+                class="form-input"
+                placeholder="John Doe"
+                type="text"
+                required
+              />
+            </div>
+            <div>
+              <label for="email" class="form-label">Working Mail *</label>
+              <input
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="john.doe@email.com"
+                type="email"
+                required
+              />
+            </div>
+          </div>
+          <div class="mb-7">
+            <label for="message" class="form-label">Anything else? *</label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-input"
+              placeholder="Write message"
+              required
+              rows={4}></textarea>
+          </div>
+
+          <div class="mb-5">
+            <label for="agree" class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                required
+                id="agree"
+                class="h-5 w-5 cursor-pointer appearance-none rounded-[4px] border border-[rgb(156_165_211)] bg-transparent text-[rgb(156_165_211)] transition-colors duration-300 ease-in-out"
+              />
+              <p class="text-text-dark text-sm font-light">
+                You agree to our
+                <a href="/privacy-policy" class="underline">friendly privacy policy.</a>
+              </p>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary px-14 py-6 text-xl">
+            Send
+          </button>
+        </form>
+
+        <a href={`mailto:${email}`} class="flex mt-18 rounded-lg p-4 bg-light">
+          <div class="w-[45px] h-[45px]">
+            <div class="bg-black/70 rounded-md size-full flex items-center justify-center">
+              <svg
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M22.5 2.5L11.5 13.5"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path
+                  d="M22.5 2.5L15.5 22.5L11.5 13.5L2.5 9.5L22.5 2.5Z"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="ml-4">
+            <h5 class="text-base font-normal mb-1">Our Email</h5>
+            <p class="text-sm">{email}</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

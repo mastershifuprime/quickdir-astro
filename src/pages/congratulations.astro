@@ -1,0 +1,22 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getListPage } from "@/lib/contentParser";
+import type { RegularPage } from "@/types";
+
+const data: RegularPage = getListPage("congratulations/_index.md");
+const { frontmatter } = data;
+const { title, meta_title, description, image } = frontmatter;
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <section class="relative section bg-[url('/images/homepage/bg-pattern.svg')] bg-cover bg-center bg-no-repeat">
+    <div class="container text-center">
+      <div class="lg:w-10/12 mx-auto">
+        <div class="bg-light sm:py-15 md:px-30 sm:px-15 p-8 rounded-2xl shadow-sm">
+          <h1 class="font-semibold mb-6">{title}</h1>
+          <p class="text-lg leading-8 mb-10">{description ?? ""}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

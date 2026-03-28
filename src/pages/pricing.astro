@@ -1,0 +1,75 @@
+---
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/layouts/partials/CallToAction";
+import PageHeader from "@/layouts/partials/PageHeader";
+import { getListPage } from "@/lib/contentParser";
+import { markdownify } from "@/lib/utils/textConverter";
+import type { RegularPage } from "@/types";
+
+const data: RegularPage = getListPage("pricing/_index.md");
+const { frontmatter } = data;
+const { title, meta_title, description, image } = frontmatter;
+const pricing_card = (frontmatter as any).pricing_card || [];
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <PageHeader {title} {description} />
+  <section class="section">
+    <div class="container">
+      <div class="row gap-y-5">
+        {pricing_card.map((card: any, index: number) => (
+          <div class="md:col-6 xl:col-4">
+            <div
+              class={`border border-dark/20 rounded-2xl overflow-hidden ${card.featured ? "xl:scale-y-105" : ""}`}
+            >
+              <div class="bg-light p-8 flex flex-col gap-y-6 border-b border-dark/20">
+                <p class="text-base">
+                  {card.name}{" "}
+                  {card.featured && (
+                    <span class="border-2 border-primary/50 inline-block ml-2.5 px-3 py-1 text-sm rounded-full bg-primary/10 text-primary">
+                      Popular
+                    </span>
+                  )}
+                </p>
+                <h2 class="font-medium">
+                  {card.currency}{card.monthly_price}{" "}
+                  <span class="text-sm text-text">per {card.period}</span>
+                </h2>
+                <p>{card.content}</p>
+                <a
+                  href={card.button.link}
+                  class={`btn ${card.featured ? "btn-primary" : "bg-dark/5"} hover:bg-primary hover:text-white`}
+                >
+                  {card.button.label}
+                </a>
+              </div>
+              <div class="p-8">
+                <h6 class="font-light text-base mb-2">FEATURES</h6>
+                <p class="text-text/80" set:html={markdownify(card.subtitle).__html} />
+                <ul class="mt-6">
+                  {card.services.map((service: string) => (
+                    <li class="flex items-center gap-x-2.5 mb-3">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="24" height="24" rx="12" class="fill-slate-700" />
+                        <rect x="1" y="1" width="22" height="22" rx="11" stroke="white" stroke-opacity="0.6" stroke-width="2" />
+                        <path d="M17 8L10.125 15L7 11.8182" stroke="white" stroke-opacity="0.6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      <span>{service}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <CallToAction />
+</Base>

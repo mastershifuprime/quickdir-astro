@@ -1,0 +1,54 @@
+---
+import Base from "@/layouts/Base.astro";
+import CallToAction from "@/layouts/partials/CallToAction";
+import PageHeader from "@/layouts/partials/PageHeader";
+import { getListPage } from "@/lib/contentParser";
+import type { RegularPage } from "@/types";
+
+const data: RegularPage = getListPage("changelog/_index.md");
+const { frontmatter } = data;
+const { title, meta_title, description, image } = frontmatter;
+const changelog = (frontmatter as any).changelog || [];
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <PageHeader {title} {description} />
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="lg:col-8 mx-auto">
+          {changelog.map((item: any, index: number) => (
+            <div class="row md:relative g-5 md:overflow-hidden">
+              <div class="md:col-5">
+                <div class="flex items-center gap-3 justify-end">
+                  <span class="text-sm">Added {item.date}</span>
+                  <span class="px-4 py-1 bg-dark text-light rounded-full">
+                    {item.change_type}
+                  </span>
+                </div>
+              </div>
+              <div class="hidden md:block md:absolute top-1 left-[39.5%]">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="8" cy="8" r="7.5" fill="white" stroke="url(#paint0_linear_60_7492)" />
+                  <circle cx="8" cy="8" r="5" fill="#272936" />
+                  <defs>
+                    <linearGradient id="paint0_linear_60_7492" x1="2" y1="1.5" x2="12.5" y2="14.5" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#FAECF0" />
+                      <stop offset="0.505837" stop-color="#FDC7EE" />
+                      <stop offset="1" stop-color="#F9F4F6" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+              <div class="relative md:col-7 pl-12 md:before:content-[''] md:before:absolute md:before:left-3 md:before:top-5 md:before:bottom-0 md:before:w-px md:before:bg-dark/50 pb-10">
+                <h4 class="mb-4">{item.title}</h4>
+                <p>{item.description || "No description provided."}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+  <CallToAction />
+</Base>

@@ -1,0 +1,44 @@
+{
+  "site": {
+    "title": "QuickDir - Directory Starter Template",
+    "base_url": "https://quickdir-nextjs.vercel.app",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.svg",
+    "logo_darkmode": "/images/logo_dark.svg",
+    "logo_width": "99",
+    "logo_height": "22",
+    "logo_text": "QuickDir"
+  },
+
+  "settings": {
+    "search": false,
+    "sticky_header": true,
+    "theme_switcher": true,
+    "default_theme": "system",
+    "pagination": 3,
+    "blog_folder": "blog"
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "submit_form_action": "#",
+    "footer_text": "Launch your directory website in hours, not weeks. ",
+    "email": "hello.quickdir@gmail.com",
+    "copyright": "Copyright © 2025 [Themefisher](https://themefisher.com)."
+  },
+
+  "navigation_button": {
+    "enable": true,
+    "label": "Buy QuickDir",
+    "link": "https://themefisher.com/products/quickdir-nextjs"
+  },
+
+  "metadata": {
+    "meta_author": "QuickDir",
+    "keywords": "directory, listings, quickdir, nextjs, react, boilerplate",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "QuickDir - Directory Starter Template"
+  }
+}

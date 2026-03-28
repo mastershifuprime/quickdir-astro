@@ -1,0 +1,26 @@
+---
+import Base from "@/layouts/Base.astro";
+import AuthorCard from "@/layouts/components/AuthorCard";
+import { getListPage, getSinglePage } from "@/lib/contentParser";
+import PageHeader from "@/layouts/partials/PageHeader";
+import type { Author } from "@/types";
+
+const authorIndex = getListPage<Author["frontmatter"]>("authors/_index.md");
+const authors: Author[] = getSinglePage("authors");
+const { title, meta_title, description, image } = authorIndex.frontmatter;
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <PageHeader {title} />
+  <section class="section-sm pb-0">
+    <div class="container">
+      <div class="row justify-center">
+        {authors.map((author: Author, index: number) => (
+          <div class="mb-14 md:col-6 lg:col-4">
+            <AuthorCard data={author} client:load />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,26 @@
+---
+import Base from "@/layouts/Base.astro";
+import MDXContent from "@/layouts/helpers/MDXContent";
+import PageHeader from "@/layouts/partials/PageHeader";
+import { getListPage } from "@/lib/contentParser";
+import type { RegularPage } from "@/types";
+
+const data: RegularPage = getListPage("about/_index.md");
+const { frontmatter, content } = data;
+const { title, meta_title, description, image } = frontmatter;
+---
+
+<Base {title} {meta_title} {description} {image}>
+  <PageHeader {title} {description} />
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-10 lg:col-6 mx-auto">
+          <div class="content prose-p:text-lg">
+            <MDXContent {content} client:load />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
