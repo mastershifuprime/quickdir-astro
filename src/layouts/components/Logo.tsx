@@ -1,9 +1,9 @@
 const Logo = () => {
   return (
-    <a href="/" className="navbar-brand inline-block text-xl font-bold tracking-tight">
+    <a href="/" className="navbar-brand inline-block text-2xl font-bold tracking-tight">
       <span style={{ color: "#7c3aed" }}>astro</span>
-      <span style={{ color: "#f97316" }}>awesome</span>
-      <span className="text-text-light">.com</span>
+      <span className="text-text-dark">awesome</span>
+      <span className="text-text-light opacity-50">.com</span>
     </a>
   );
 };
