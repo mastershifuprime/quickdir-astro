@@ -1,4 +1,4 @@
-/* define font family into layout.tsx */
+/* Astro Awesome Theme - inspired by astro.build */
 
 /* font size and radius */
 :root {
@@ -7,42 +7,42 @@
   --radius: 0.6rem;
 }
 
-/* default colors */
+/* light mode - clean & bright with Astro accent */
 :root {
   --body-color: #ffffff;
-  --primary-color: #525ace;
-  --border-color: #eaeaeaff;
-  --light-color: #f8fafc;
-  --dark-color: #1c1f26;
-  --accent-color: #007bff;
-  --muted-color: #d0d7e6;
-  --danger-color: #e63946;
-  --success-color: #3a9d23;
-  --warning-color: #d69f00;
+  --primary-color: #7c3aed;
+  --border-color: #e5e7eb;
+  --light-color: #f9fafb;
+  --dark-color: #17191e;
+  --accent-color: #f97316;
+  --muted-color: #d1d5db;
+  --danger-color: #ef4444;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
 
-  --text-default-color: #2c3e50c4;
-  --text-light-color: #707177;
-  --text-dark-color: #1a1a1a;
-  --text-muted-color: #6b6b6b;
+  --text-default-color: #4b5563;
+  --text-light-color: #6b7280;
+  --text-dark-color: #111827;
+  --text-muted-color: #9ca3af;
   --text-white-color: #ffffff;
 }
 
-/* darkmode colors */
+/* dark mode - Astro's signature deep space theme */
 .dark {
-  --body-color: #01040f;
-  --primary-color: #525ace;
-  --border-color: #121627;
-  --light-color: #0c1122;
-  --dark-color: #f2f2f2;
-  --accent-color: #00aaff;
-  --muted-color: #2e2e2e;
-  --danger-color: #ff0000;
-  --success-color: #00ff00;
-  --warning-color: #ffaa00;
+  --body-color: #0d0f14;
+  --primary-color: #7c3aed;
+  --border-color: #1e2130;
+  --light-color: #13151c;
+  --dark-color: #f1f5f9;
+  --accent-color: #f97316;
+  --muted-color: #1e2130;
+  --danger-color: #ef4444;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
 
-  --text-default-color: #a3acc2d7;
-  --text-light-color: #6a6a80;
-  --text-dark-color: #ffffff;
-  --text-muted-color: #b3b3b3;
-  --text-white-color: #000000;
+  --text-default-color: #9ca3c0;
+  --text-light-color: #636b83;
+  --text-dark-color: #f1f5f9;
+  --text-muted-color: #6b7280;
+  --text-white-color: #0d0f14;
 }
