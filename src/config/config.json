@@ -7,16 +7,16 @@
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.svg",
     "logo_darkmode": "/images/logo_dark.svg",
-    "logo_width": "99",
-    "logo_height": "22",
+    "logo_width": "200",
+    "logo_height": "32",
     "logo_text": "Astro Awesome"
   },
 
   "settings": {
     "search": false,
     "sticky_header": true,
-    "theme_switcher": true,
-    "default_theme": "dark",
+    "theme_switcher": false,
+    "default_theme": "system",
     "pagination": 12,
     "blog_folder": "blog"
   },
