@@ -7,14 +7,14 @@
   --radius: 0.6rem;
 }
 
-/* light mode - clean & bright with Astro accent */
+/* light mode - Astro brand colors */
 :root {
   --body-color: #ffffff;
-  --primary-color: #7c3aed;
+  --primary-color: #FF5D01;
   --border-color: #e5e7eb;
   --light-color: #f9fafb;
   --dark-color: #17191e;
-  --accent-color: #f97316;
+  --accent-color: #882DE7;
   --muted-color: #d1d5db;
   --danger-color: #ef4444;
   --success-color: #22c55e;
@@ -30,11 +30,11 @@
 /* dark mode - Astro's signature deep space theme */
 .dark {
   --body-color: #0d0f14;
-  --primary-color: #7c3aed;
+  --primary-color: #FF5D01;
   --border-color: #1e2130;
   --light-color: #13151c;
   --dark-color: #f1f5f9;
-  --accent-color: #f97316;
+  --accent-color: #882DE7;
   --muted-color: #1e2130;
   --danger-color: #ef4444;
   --success-color: #22c55e;
