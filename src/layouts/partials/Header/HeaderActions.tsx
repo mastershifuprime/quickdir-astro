@@ -33,7 +33,6 @@ export function HeaderActions({
           <Search />
         </a>
       )}
-      <ThemeSwitcher />
       {navigationButton.enable && (
         <Button asChild className="ml-2 h-auto text-white">
           <a
