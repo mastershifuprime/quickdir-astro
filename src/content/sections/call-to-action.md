@@ -1,10 +1,10 @@
 ---
 enable: true
-title: "Your directory idea can go live faster"
+title: "Have an Astro resource to share?"
 image: "/images/call-to-action.png"
-description: "QuickDir gives you the foundation. You bring the vision."
+description: "Whether it's a theme, tool, tutorial, or integration — submit it to Astro Awesome and help the community discover it."
 button:
   enable: true
-  label: "Buy QuickDir"
-  link: "https://themefisher.com/products/quickdir-nextjs"
+  label: "Submit Your Resource"
+  link: "/submit"
 ---

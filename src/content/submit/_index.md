@@ -1,6 +1,6 @@
 ---
-title: "Submit Your Listing"
-meta_title: "Submission"
-description: "Add your entry to this directory. Each submission is reviewed for quality and relevance."
+title: "Submit a Resource"
+meta_title: "Submit"
+description: "Share your Astro theme, tool, tutorial, or integration with the community. Every submission is reviewed for quality."
 draft: false
 ---

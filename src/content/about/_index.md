@@ -1,15 +1,29 @@
 ---
-title: "About Us"
+title: "About Astro Awesome"
 meta_title: "About"
-description: "QuickDir helps creators launch directory websites quickly, with the features they actually need."
+description: "A community-curated directory of the best Astro resources, tools, themes, and tutorials."
 image: "/images/avatar.png"
 draft: false
 ---
 
-QuickDir was created to make building directory websites simple and fast. Whether you are showcasing products, listing businesses, managing job postings, or curating community resources, QuickDir gives you the structure to get started in hours, not weeks.
+Every day, the Astro community shares incredible resources — themes, tools, migration stories, tutorials, templates, and more. But within a few days, they get lost in the scroll of Reddit, Discord, and Twitter.
 
-It combines a clean Next.js foundation with powerful features like advanced search, filters, user submissions, and CMS integration. Everything is customizable, so you can adapt it to your niche, design, and growth plans.
+**Astro Awesome** exists to solve that. We're building an open, community-driven directory where the best Astro resources are always easy to find.
 
-Our goal is to provide a theme that saves you time without limiting your creativity. QuickDir is built to launch fast today and scale easily as your directory grows with features like authentication, paid listings, and analytics.
+### What we curate
 
-Happy Building!
+- 🎨 **Themes & Templates** — Starter kits, portfolios, blogs, landing pages, and more
+- 🛠️ **Tools & Integrations** — Plugins, adapters, CMS connectors, and developer tools
+- 📚 **Tutorials & Guides** — Learning resources from beginner to advanced
+- 🧩 **Components & Libraries** — Reusable UI components for Astro projects
+- 🚀 **Showcases** — Real-world sites built with Astro for inspiration
+
+### Community-driven
+
+Anyone can submit a resource. Every submission is reviewed for quality and relevance before being listed. If you've built something awesome with Astro, we want to feature it.
+
+### Open source
+
+Astro Awesome is built with Astro (of course!) and is open source. Contributions are welcome.
+
+Happy building! 🚀

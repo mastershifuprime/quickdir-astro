@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "QuickDir - Directory Starter Template",
-    "base_url": "https://quickdir-nextjs.vercel.app",
+    "title": "Astro Awesome - Curated Astro Resources Directory",
+    "base_url": "https://astroawesome.com",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
@@ -9,7 +9,7 @@
     "logo_darkmode": "/images/logo_dark.svg",
     "logo_width": "99",
     "logo_height": "22",
-    "logo_text": "QuickDir"
+    "logo_text": "Astro Awesome"
   },
 
   "settings": {
@@ -17,28 +17,28 @@
     "sticky_header": true,
     "theme_switcher": true,
     "default_theme": "system",
-    "pagination": 3,
+    "pagination": 12,
     "blog_folder": "blog"
   },
 
   "params": {
     "contact_form_action": "#",
     "submit_form_action": "#",
-    "footer_text": "Launch your directory website in hours, not weeks. ",
-    "email": "hello.quickdir@gmail.com",
-    "copyright": "Copyright © 2025 [Themefisher](https://themefisher.com)."
+    "footer_text": "The ultimate directory of Astro resources, tools, themes, and tutorials.",
+    "email": "hello@astroawesome.com",
+    "copyright": "Copyright © 2026 [Astro Awesome](https://astroawesome.com). Built with Astro."
   },
 
   "navigation_button": {
     "enable": true,
-    "label": "Buy QuickDir",
-    "link": "https://themefisher.com/products/quickdir-nextjs"
+    "label": "Submit Resource",
+    "link": "/submit"
   },
 
   "metadata": {
-    "meta_author": "QuickDir",
-    "keywords": "directory, listings, quickdir, nextjs, react, boilerplate",
+    "meta_author": "Astro Awesome",
+    "keywords": "astro, astrojs, resources, themes, templates, tools, tutorials, plugins, integrations, directory",
     "meta_image": "/images/og-image.png",
-    "meta_description": "QuickDir - Directory Starter Template"
+    "meta_description": "Discover the best Astro themes, templates, tools, tutorials, and resources. A community-curated directory for the Astro ecosystem."
   }
 }

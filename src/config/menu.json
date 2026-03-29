@@ -1,11 +1,7 @@
 {
   "main": [
     {
-      "name": "Home",
-      "url": "/"
-    },
-    {
-      "name": "Products",
+      "name": "Resources",
       "url": "/products"
     },
     {
@@ -13,103 +9,40 @@
       "url": "/blog"
     },
     {
-      "name": "All Pages",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Contact",
-          "url": "/contact"
-        },
-        {
-          "name": "Submit",
-          "url": "/submit"
-        },
-        {
-          "name": "Pricing",
-          "url": "/pricing"
-        },
-        {
-          "name": "About",
-          "url": "/about"
-        },
-        {
-          "name": "Changelog",
-          "url": "/changelog"
-        },
-        {
-          "name": "Authors",
-          "url": "/authors"
-        },
-        {
-          "name": "Privacy",
-          "url": "/privacy-policy"
-        },
-        {
-          "name": "Terms",
-          "url": "/terms-conditions"
-        },
-        {
-          "name": "404 Page",
-          "url": "/404"
-        }
-      ]
+      "name": "About",
+      "url": "/about"
+    },
+    {
+      "name": "Pricing",
+      "url": "/pricing"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
     }
   ],
   "footer": [
     {
-      "name": "General",
+      "name": "Directory",
       "links": [
-        {
-          "name": "About Us",
-          "url": "/about"
-        },
-        {
-          "name": "Privacy Policy",
-          "url": "/privacy-policy"
-        },
-        {
-          "name": "Terms & Conditions",
-          "url": "/terms-conditions"
-        }
+        { "name": "All Resources", "url": "/products" },
+        { "name": "Submit Resource", "url": "/submit" },
+        { "name": "Pricing", "url": "/pricing" }
       ]
     },
     {
-      "name": "Resources",
+      "name": "Community",
       "links": [
-        {
-          "name": "Products",
-          "url": "/products"
-        },
-        {
-          "name": "Pricing",
-          "url": "/pricing"
-        },
-        {
-          "name": "Blogs",
-          "url": "/blog"
-        }
+        { "name": "Blog", "url": "/blog" },
+        { "name": "About", "url": "/about" },
+        { "name": "Contact", "url": "/contact" }
       ]
     },
     {
-      "name": "Help & Support",
+      "name": "Legal",
       "links": [
-        {
-          "name": "Contact",
-          "url": "/contact"
-        },
-        {
-          "name": "Submission",
-          "url": "/submit"
-        },
-        {
-          "name": "Changelogs",
-          "url": "/changelog"
-        },
-        {
-          "name": "Documentation",
-          "url": "/docs"
-        }
+        { "name": "Privacy Policy", "url": "/privacy-policy" },
+        { "name": "Terms & Conditions", "url": "/terms-conditions" }
       ]
     }
   ]

@@ -1,13 +1,13 @@
 ---
-title: "QuickDir - Next.js Directory Starter Template"
-description: "QuickDir is a Next.js directory theme with search, advanced filters, submissions, paid listings, SEO, analytics, and CMS integration. Everything you need to create a powerful directory site fast."
-keywords: "Next.js, TailwindCSS, starter template, responsive design, SEO optimization, open-source"
+title: "Astro Awesome - Curated Astro Resources Directory"
+description: "Discover the best Astro themes, templates, tools, tutorials, and resources. A community-curated directory for everything in the Astro ecosystem."
+keywords: "Astro, AstroJS, themes, templates, tools, tutorials, integrations, resources, directory"
 
 # Banner
 banner:
-  badge: "Directory Starter Template"
-  title: "Launch your directory website in hours, not weeks"
-  content: "QuickDir is a full-featured directory starter built with Next.js and Tailwind CSS. Manage listings with markdown content, accept submissions, monetize with payments, and launch a fully functional directory site in hours."
+  badge: "Community-Curated Directory"
+  title: "Discover the best resources for Astro"
+  content: "Themes, templates, tools, tutorials, and integrations — all in one place. A community-driven directory to help you build better with Astro."
   image: "/images/homepage/bg-pattern.svg"
 
 featured_products:
@@ -32,6 +32,6 @@ popular_products:
   - listing-2
 
 items_by_section:
-  title: Items By Categories
-  subtitle: Browse listings organized by category. You can create any type of directory including products, local businesses, services, communities, and more. Use categories to make it easy for visitors to find what they need quickly.
+  title: Browse by Category
+  subtitle: Explore Astro resources organized by type — from starter templates and themes to developer tools, tutorials, and community projects. Find exactly what you need for your next Astro project.
 ---

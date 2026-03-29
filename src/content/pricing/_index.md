@@ -1,69 +1,63 @@
 ---
-title: "Pricing"
-description: "This page showcases how to monetize directory listings. Let the users choose the visibility level that suits their needs."
-offer: "Save 50% On Annual Subscriptionssss"
-# you can set only monthly, only yearly, or toggle both
-monthly_yearly_toggle: "toggle" # available value "monthly"/"yearly"/"toggle"
+title: "Featured Listings"
+description: "Want more visibility for your Astro resource? Choose a plan to get featured placement in the directory."
+offer: ""
+monthly_yearly_toggle: "monthly"
 billing:
   monthly: "billed monthly"
   annually: "billed annually"
 
-# pricing card
 pricing_card:
-  # pricing table
   - name: "Free"
-    content: "Get started at no cost."
+    content: "List your resource for free."
     currency: "$"
     monthly_price: "0"
     yearly_price: "0"
     period: "month"
     featured: false
     button: 
-      label: "Get Started"
-      link: "#"
-    subtitle: "List your entry with no fees."
+      label: "Submit Free"
+      link: "/submit"
+    subtitle: "Basic listing in the directory."
     services:
-      - "Standard placement"
-      - "Includes title, short description, and one link"
-      - "Always visible to visitors"
+      - "Standard placement in category"
+      - "Title, description, and link"
+      - "Visible to all visitors"
 
-
-  # pricing table
   - name: "Featured"
-    content: "Stand out from the crowd."
+    content: "Get premium placement and more exposure."
     currency: "$"
-    monthly_price: "20"
-    yearly_price: "199"
+    monthly_price: "9"
+    yearly_price: "89"
     period: "month"
     featured: true
     button: 
-      label: "Get Started"
-      link: "#"
-    subtitle: "Everything in our **Free** plan plus...."
+      label: "Get Featured"
+      link: "/contact"
+    subtitle: "Stand out from the crowd."
     services:
-      - "Priority placement above free listings"
-      - "Highlighted styling"
-      - "Multiple links and up to 5 images"
-      - "Monthly performance summary"
+      - "Featured badge on listing"
+      - "Priority placement in category"
+      - "Highlighted in homepage carousel"
+      - "Social media promotion"
+      - "Detailed description with screenshots"
 
-
-  # pricing table
-  - name: "Growth"
-    content: "Maximum exposure and insights."
+  - name: "Sponsor"
+    content: "Maximum visibility and brand awareness."
     currency: "$"
-    monthly_price: "40"
+    monthly_price: "29"
+    yearly_price: "290"
     period: "month"
-    yearly_price: "229"
     featured: false
     button: 
-      label: "Get Started"
-      link: "#"
-    subtitle: "Everything in our **Featured** plan plus...."
+      label: "Become a Sponsor"
+      link: "/contact"
+    subtitle: "Premium sponsorship benefits."
     services:
-      - "Top spots in search and categories"
-      - "Homepage feature section"
-      - "Advanced analytics and reports"
-      - "Priority review and support"
-
-draft: false
+      - "Everything in Featured"
+      - "Banner placement on homepage"
+      - "Dedicated sponsor section"
+      - "Newsletter mention"
+      - "Priority support"
+      - "Custom landing page link"
 ---
