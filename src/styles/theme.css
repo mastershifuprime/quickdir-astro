@@ -7,14 +7,14 @@
   --radius: 0.6rem;
 }
 
-/* light mode - Astro brand colors */
+/* light mode - Astro purple */
 :root {
   --body-color: #ffffff;
-  --primary-color: #FF5D01;
+  --primary-color: #882DE7;
   --border-color: #e5e7eb;
   --light-color: #f9fafb;
   --dark-color: #17191e;
-  --accent-color: #882DE7;
+  --accent-color: #6D23B6;
   --muted-color: #d1d5db;
   --danger-color: #ef4444;
   --success-color: #22c55e;
@@ -27,14 +27,14 @@
   --text-white-color: #ffffff;
 }
 
-/* dark mode - Astro's signature deep space theme */
+/* dark mode - Astro purple deep space */
 .dark {
   --body-color: #0d0f14;
-  --primary-color: #FF5D01;
+  --primary-color: #882DE7;
   --border-color: #1e2130;
   --light-color: #13151c;
   --dark-color: #f1f5f9;
-  --accent-color: #882DE7;
+  --accent-color: #6D23B6;
   --muted-color: #1e2130;
   --danger-color: #ef4444;
   --success-color: #22c55e;
