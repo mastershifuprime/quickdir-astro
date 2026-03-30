@@ -11,22 +11,22 @@ banner:
   image: "/images/homepage/bg-pattern.svg"
 
 featured_products:
-  - listing-1
-  - listing-3
-  - listing-6
-  - listing-9
-  - listing-12
+  - astroplate
+  - storeplate
+  - novai-astro
+  - sitepins
+  - themefisher-astro-bundle
   - listing-20
   - listing-8
   - listing-2
   - listing-17
 
 popular_products:
-  - listing-1
-  - listing-3
-  - listing-6
-  - listing-9
-  - listing-12
+  - fortify-astro
+  - logbook-astro
+  - starlight
+  - astro-docs-mcp-server
+  - getastrothemes
   - listing-20
   - listing-8
   - listing-2
