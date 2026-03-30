@@ -16,20 +16,20 @@ featured_products:
   - novai-astro
   - sitepins
   - themefisher-astro-bundle
-  - listing-20
-  - listing-8
-  - listing-2
-  - listing-17
-
-popular_products:
   - fortify-astro
   - logbook-astro
   - starlight
   - astro-docs-mcp-server
+
+popular_products:
+  - astro-website-starter
+  - astro-supabase-template
+  - gastronaut
+  - velocity
   - getastrothemes
-  - listing-20
-  - listing-8
-  - listing-2
+  - frontmatter-core
+  - starlight-telescope
+  - astro-cloudflare-workers-guide
 
 items_by_section:
   title: Browse by Category
