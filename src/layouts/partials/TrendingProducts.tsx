@@ -10,9 +10,9 @@ const TrendingProducts: React.FC<{ products: Product[] }> = ({ products }) => {
     <section className="section py-16">
       <div className="container">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">Trending now</h2>
+          <h2 className="text-2xl font-bold">Trending Resources</h2>
           <a href="/products" className="text-dark hover:underline">
-            View all products
+            View all resources
           </a>
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

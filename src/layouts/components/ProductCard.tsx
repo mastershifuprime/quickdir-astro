@@ -7,75 +7,69 @@ const ProductCard: React.FC<{
   const frontmatter = product.frontmatter;
   const slug = product.slug || "";
 
+  const price = frontmatter.price || 0;
+  const priceLabel = price > 0 ? `$${price}` : "Free";
+
   return (
-    <div className=" bg-light rounded-2xl overflow-hidden flex flex-col justify-between">
-      <div className="p-5">
-        <div className="grid place-items-center overflow-hidden rounded-xl p-2 border border-border bg-text-light/10 mb-2 max-w-max">
-          <img
-            src={frontmatter.logo}
-            alt={frontmatter.title}
-            className=" min-w-6 object-cover"
-            width={24}
-            height={24}
-          />
-        </div>
-        <div>
+    <a
+      href={`/products/${slug}`}
+      className="group bg-light rounded-2xl overflow-hidden flex flex-col border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
+    >
+      {/* Image Preview */}
+      <div className="relative aspect-[16/10] overflow-hidden bg-dark/5">
+        <img
+          src={frontmatter.image || "/images/products/product-example.png"}
+          alt={frontmatter.title}
+          className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
+          loading="lazy"
+        />
+        {/* Featured badge */}
+        {frontmatter.featured && (
+          <span className="absolute top-3 left-3 px-2.5 py-1 bg-primary text-white text-xs font-medium rounded-full">
+            ⭐ Featured
+          </span>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-5 flex flex-col flex-1">
+        {/* Title + Price row */}
+        <div className="flex items-start justify-between gap-3 mb-2">
           <h3
-            className="text-dark text-h6 mb-2 font-semibold"
+            className="text-dark text-base font-semibold leading-snug line-clamp-2 group-hover:text-primary transition-colors"
             dangerouslySetInnerHTML={markdownify(frontmatter.title)}
           />
-          {frontmatter.tags?.map((tag: string) => (
+          <span className={`shrink-0 text-sm font-semibold px-2.5 py-1 rounded-lg ${price > 0 ? 'bg-dark/10 text-dark' : 'bg-primary/10 text-primary'}`}>
+            {priceLabel}
+          </span>
+        </div>
+
+        {/* Author */}
+        {frontmatter.author && (
+          <p className="text-text-light text-sm mb-2">
+            By <span className="text-text">{frontmatter.author}</span>
+          </p>
+        )}
+
+        {/* Description */}
+        <p
+          className="text-text-light text-sm leading-relaxed line-clamp-2 mb-4 flex-1"
+          dangerouslySetInnerHTML={markdownify(frontmatter?.description || "")}
+        />
+
+        {/* Tags */}
+        <div className="flex flex-wrap gap-1.5">
+          {frontmatter.tags?.slice(0, 4).map((tag: string) => (
             <span
               key={tag}
-              className="px-2 py-1 border border-border rounded-full text-xs leading-none mr-2"
+              className="px-2 py-0.5 bg-dark/5 border border-border rounded-md text-xs text-text-light"
             >
               {tag}
             </span>
           ))}
         </div>
-
-        <p
-          className="mt-4 mb-5 line-clamp-3"
-          dangerouslySetInnerHTML={markdownify(frontmatter?.description || "")}
-        />
-        <a
-          href={`/products/${slug}`}
-          className="py-3 px-5 text-center bg-transparent border border-border hover:bg-primary/10 transition-colors duration-200 flex justify-center items-center gap-2 rounded-xl max-w-max"
-          aria-label="View Product"
-        >
-          View Details
-          <svg
-            width="16"
-            height="17"
-            viewBox="0 0 16 17"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.6665 7.83337L14.1332 2.3667"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M14.6668 5.03337V1.83337H11.4668"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M7.3335 1.83337H6.00016C2.66683 1.83337 1.3335 3.16671 1.3335 6.50004V10.5C1.3335 13.8334 2.66683 15.1667 6.00016 15.1667H10.0002C13.3335 15.1667 14.6668 13.8334 14.6668 10.5V9.16671"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </a>
       </div>
-    </div>
+    </a>
   );
 };
 
